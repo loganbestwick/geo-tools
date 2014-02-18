@@ -1,0 +1,28 @@
+{
+	"name" : "geotools",
+	"homepage" : tbd,
+	"author" : {
+		"name" : "Logan Bestwick",
+		"url" : "https://github.com/loganbestwick"
+	},
+	"bin" : {
+		"geotools" : "./geotools.js"
+	},
+	"repository" : {
+		"type" : "git",
+	"url" : TBD
+	},
+	"files" : [
+		"geolib.js"
+	],
+	"description" : "Tools to help geocode and calculate location distances",
+	"keywords" : [
+		"geocode",
+		"geodistance",
+		"geo",
+		"distance",
+		"coordinates"
+	],
+	"version" : ".1",
+	"main" : "./geotools"
+}
