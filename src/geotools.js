@@ -1,4 +1,5 @@
 var http = require('http');
+var url = require('url');
 
 var geoTools = {};
 
@@ -22,11 +23,14 @@ function toRad(deg) {
 }
 
 geoTools.geoCode = function(address) {
+	var query = address.split(" ").join("+") + '&sensor=false'
 	var options = {
 		host : 'maps.googleapis.com',
-		path: '/maps/api/geocode/json?address=' + address.split(" ").join("+") + '&sensor=false'
-	}
+		path: '/maps/api/geocode/json?address=?' + query
+		}
+		
 	var req = http.get(options, function(res){
+		console.log(res)
 		console.log("Response: " + res.statusCode);
 		var results = '';
 		res.on('data', function(data){
