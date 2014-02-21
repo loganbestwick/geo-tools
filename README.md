@@ -1,11 +1,17 @@
 #Geotools
 
-A simple library used to geocode an address and calculate the distance between two locations.
+A simple library used to geocode an address, reverse geocode coordinates, and calculate the distance between two locations.
+
+Google Maps API services are used for both geo and reverse geocoding. 
+
+This is my first open-source contirubtion. Any and all feedback/suggestions is appreciated and should be sent to: [loganbestwick@gmail.com](mailto:loganbestwick@gmail.com)
 
 <h2>To-Do:</h2>
 <ul>
 	<li>Build tests</li>
-	<li>Allow distance method to take two obj literals or take 4 arguements, 2 lats and 2 lngs</li>
-	<li>Reverse Geocoding</li>
-	<li>Return full address along with lat/lng info</li>
+	<li>Use AirBnB's JS Styling Guide</li>
+	<li>Take case logic out of reverse geocoding</li>
+	<li>Allow unit conversions to be done to this</li>
+	<li>Allow for API key to be used</li>
+	<li>Stay consistent: all lon should be converted to lng</li>
 </ul>
