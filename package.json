@@ -1,6 +1,6 @@
 {
 	"name" : "geotools",
-	"homepage" : tbd,
+	"homepage" : "",
 	"author" : {
 		"name" : "Logan Bestwick",
 		"url" : "https://github.com/loganbestwick"
@@ -10,7 +10,7 @@
 	},
 	"repository" : {
 		"type" : "git",
-	"url" : TBD
+	"url" : ""
 	},
 	"files" : [
 		"geolib.js"
@@ -23,6 +23,5 @@
 		"distance",
 		"coordinates"
 	],
-	"version" : ".1",
 	"main" : "./geotools"
 }

@@ -7,9 +7,9 @@ var geoTools = require('./geotools.js');
 // console.log(toMeters(x));
 // console.log(toFeet(x));
 // console.log(toMiles(x));
-// geocode('224 evergreen drive, kentfield, ca, 94904', function(coordinates){
-// 	console.log(coordinates);
-// })
+geocode('224 evergreen drive, kentfield, ca, 94904', function(coordinates){
+	console.log(typeof (coordinates.lat));
+})
 
 // var y = geocode('224 evergreen drive, kentfield, ca, 94904');
 // console.log(y)
@@ -24,7 +24,7 @@ var geoTools = require('./geotools.js');
 
 // console.log(x, k)
 
-reverseGeocode(37.944911, -122.55851, function(data){
-	console.log(data)
-})
+// reverseGeocode(37.944911, -122.55851, function(data){
+// 	console.log(data)
+// })
 
