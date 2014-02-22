@@ -10,8 +10,7 @@ This is my first open-source contirubtion. Any and all feedback/suggestions is a
 <ul>
 	<li>Build tests</li>
 	<li>Use AirBnB's JS Styling Guide</li>
-	<li>Take case logic out of reverse geocoding</li>
-	<li>Allow unit conversions to be done to this</li>
 	<li>Allow for API key to be used</li>
 	<li>Stay consistent: all lon should be converted to lng</li>
+	<li>Throw errors</li>
 </ul>

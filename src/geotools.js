@@ -71,62 +71,64 @@ var url = require('url');
 			})
 			res.on('end', function() {
 				var body = JSON.parse(results)
-				var address = {
-					full_address : body.results[0].formatted_address
-				};
-				var addressJSON = body.results[0].address_components
-				for (var i = 0; i < addressJSON.length; i++) {
-					switch (addressJSON[i].types[0]) {
-						case 'street_number':
-							address.street_number = addressJSON[i].long_name
-							break;
-						case 'route':
-							address.street = addressJSON[i].long_name
-							break;
-						case 'neighborhood':
-							address.neighborhood = addressJSON[i].long_name
-							break;
-						case 'locality' || 'sublocality':
-							address.city = addressJSON[i].long_name
-							break;
-						case 'administrative_area_level_2':
-							address.county = addressJSON[i].long_name
-							break;
-						case 'administrative_area_level_1':
-							address.state = addressJSON[i].long_name
-							break;
-						case 'country':
-							address.country = addressJSON[i].long_name
-							break;
-						case 'postal_code':
-							address.postal_code = addressJSON[i].long_name
-							break;
-					}
-				}
+				var address = gMapsFormData(body)
 				if (callback) {
 					callback(address)
 				} else {
-					return address
-				}
+					return address}
 			})
 		})
 	}
 
-	
+	gMapsFormData = function(json) {
+		var address = {
+					full_address : json.results[0].formatted_address
+				};
+		var addressJSON = json.results[0].address_components
+		for (var i = 0; i < addressJSON.length; i++) {
+			switch (addressJSON[i].types[0]) {
+				case 'street_number':
+					address.street_number = addressJSON[i].long_name
+					break;
+				case 'route':
+					address.street = addressJSON[i].long_name
+					break;
+				case 'neighborhood':
+					address.neighborhood = addressJSON[i].long_name
+					break;
+				case 'locality' || 'sublocality':
+					address.city = addressJSON[i].long_name
+					break;
+				case 'administrative_area_level_2':
+					address.county = addressJSON[i].long_name
+					break;
+				case 'administrative_area_level_1':
+					address.state = addressJSON[i].long_name
+					break;
+				case 'country':
+					address.country = addressJSON[i].long_name
+					break;
+				case 'postal_code':
+					address.postal_code = addressJSON[i].long_name
+					break;
+			}
+		}
+		return address
+	}
 
-	toMiles = function(distance) {
+	Object.prototype.toMiles = function(distance) {
 		return distance * 1.60934
 	}
 
-	toMeters = function(distance) {
+	Object.prototype.toMeters = function(distance) {
 		return distance * 1000
 	}
 
-	toYards = function(distance) {
+	Object.prototype.toYards = function(distance) {
 		return distance * 1093.61
 	}
 
-	toFeet = function(distance) {
+	Object.prototype.toFeet = function(distance) {
 		return distance * 3280.84
 	}
 }).call(this);

@@ -24,4 +24,7 @@ var geoTools = require('./geotools.js');
 
 // console.log(x, k)
 
-reverseGeocode(37.944911, -122.55851)
+reverseGeocode(37.944911, -122.55851, function(data){
+	console.log(data)
+})
+
