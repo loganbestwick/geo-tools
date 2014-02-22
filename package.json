@@ -16,6 +16,10 @@
 		"geolib.js"
 	],
 	"description" : "Tools to help geocode and calculate location distances",
+	"devDependencies" : {
+		"should" : "3.1.2",
+		"mocha" : "1.17.1"
+		},
 	"keywords" : [
 		"geocode",
 		"geodistance",

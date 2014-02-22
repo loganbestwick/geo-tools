@@ -13,4 +13,5 @@ This is my first open-source contirubtion. Any and all feedback/suggestions is a
 	<li>Allow for API key to be used</li>
 	<li>Stay consistent: all lon should be converted to lng</li>
 	<li>Throw errors</li>
+	<li>Add dependencies to package.json</li>
 </ul>
