@@ -3,31 +3,33 @@ var url = require('url');
 
 (function() {
 
-	distance = function (lat1, lon1, lat2, lon2) {
-		if ((lat1.lat || lat1.latitude) && (lon1.lat || lon1.latitude)) {
-			lat2 = lon1.lat || lon1.latitude
-			lon2 = lon1.lon || lon1.longitude
-			lon1 = lat1.lon || lat1.longitude
-			lat1 = lat1.lat || lat1.latitude
+	//Calculates the distance between to sets of coordinates
+	distance = function (lat1, lng1, lat2, lng2) {
+		if (lat1.lat && lng1.lat) {
+			lat2 = lng1.lat
+			lng2 = lng1.lng
+			lng1 = lat1.lng
+			lat1 = lat1.lat
 		}
 		var R = 6371; // km
 		var dLat = toRad(lat2-lat1);
-		var dLon = toRad(lon2-lon1);
+		var dLng = toRad(lng2-lng1);
 		var lat1 = toRad(lat1);
 		var lat2 = toRad(lat2);
 
 		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-		        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+		        Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2); 
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c; // Distance in k
 		return d;
 	}
-
-	function toRad(deg) {
-	    /** Converts numeric degrees to radians */
+	
+	// Converts numeric degrees to radians. Used in distance()
+	toRad = function(deg) {
 	    return deg * Math.PI / 180;
 	}
 
+	//Converts a physical address to a set of coordinates
 	geocode = function(address, callback) {
 		//Prepares the inputted address into the search query
 		var query = address.split(" ").join("+") + '&sensor=false'
@@ -56,7 +58,13 @@ var url = require('url');
 		})
 	}
 
+	//Converts a set of coordinates to a physical address
 	reverseGeocode = function(lat, lng, callback) {
+		if (lat.lat && lat.lng) {
+			callback = lng
+			lng = lat.lng
+			lat = lat.lat
+		}
 		//Prepares the inputted lat/lng into the search query
 		var query = lat.toString() + ',' + lng.toString() + '&sensor=false'
 		var options = {
@@ -80,6 +88,7 @@ var url = require('url');
 		})
 	}
 
+	//Maps the returned JSON from Google APIs for the reverseGeocode function
 	gMapsFormData = function(json) {
 		var address = {
 					full_address : json.results[0].formatted_address
@@ -116,19 +125,24 @@ var url = require('url');
 		return address
 	}
 
-	Object.prototype.toMiles = function(distance) {
+	//Converts KM into miles
+	toMiles = function(distance) {
 		return distance * 1.60934
 	}
 
-	Object.prototype.toMeters = function(distance) {
+	//Converts KM into meters
+	toMeters = function(distance) {
 		return distance * 1000
 	}
 
-	Object.prototype.toYards = function(distance) {
+	//Converts KM into yards
+	toYards = function(distance) {
 		return distance * 1093.61
 	}
 
-	Object.prototype.toFeet = function(distance) {
+	//Converts KM into feet
+	toFeet = function(distance) {
 		return distance * 3280.84
 	}
+
 }).call(this);
