@@ -1,5 +1,5 @@
 var should = require('should');
-var geotools = require('../src/geotools.js')
+var geotools = require('../src/geo-tools.js')
 
 describe('GeoTools', function(){
 	describe('geocode', function(){
@@ -51,7 +51,7 @@ describe('GeoTools', function(){
 
 	describe('unit conversions', function(){
 		it('should convert KM into respective units', function(done){
-			toMiles(1).should.be.exactly(1.60934);
+			toMiles(1).should.be.exactly(0.621371);
 			toMeters(1).should.be.exactly(1000);
 			toYards(1).should.be.exactly(1093.61);
 			toFeet(1).should.be.exactly(3280.84);

@@ -1,21 +1,21 @@
 {
-	"name" : "geotools",
+	"name" : "geo-tools",
 	"homepage" : "",
 	"author" : {
 		"name" : "Logan Bestwick",
 		"url" : "https://github.com/loganbestwick"
 	},
 	"bin" : {
-		"geotools" : "./geotools.js"
+		"geotools" : "./geo-tools.js"
 	},
 	"repository" : {
 		"type" : "git",
 	"url" : ""
 	},
 	"files" : [
-		"geolib.js"
+		"geo-tools.js"
 	],
-	"description" : "Tools to help geocode and calculate location distances",
+	"description" : "Tools to help geocode, reverse geocode, and calculate location distances",
 	"devDependencies" : {
 		"should" : "3.1.2",
 		"mocha" : "1.17.1"
@@ -24,8 +24,9 @@
 		"geocode",
 		"geodistance",
 		"geo",
+		"geo-tools"
 		"distance",
 		"coordinates"
 	],
-	"main" : "./geotools"
+	"main" : "./geo-tools"
 }
