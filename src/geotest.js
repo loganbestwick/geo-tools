@@ -1,6 +1,6 @@
 var geoTools = require('./geotools.js');
 
-// var x = distance(40.79162, -111.765609, 40.803544, -111.773849)
+distance(40.79162, -111.765609, 40.803544, -111.773849)
 
 
 // console.log(x);
@@ -8,17 +8,20 @@ var geoTools = require('./geotools.js');
 // console.log(x.toMeters());
 // console.log(x.toFeet());
 // console.log(1.toMiles());
-// geocode('224 evergreen drive, kentfield, ca, 94904', function(coordinates){
+// geocode('224 evergreen drive, kentfield, ca, 94904', 'AIzaSyAojheuTNgd3LWLwrmB758ctk4mjdMj2fY', function(coordinates){
 // 	console.log(coordinates);
 // })
 
+// geocode('224 evergreen drive, kentfield, ca, 94904', function(coordinates){
+// 	console.log(coordinates);
+// })
 // var y = geocode('224 evergreen drive, kentfield, ca, 94904');
 // console.log(y)
 
 // console.log(y);
 
 // var p = {lat : 40.79162, lng : -111.765609}
-var m = {lat : 40.803544, lng : -111.773849}
+// var m = {lat : 40.803544, lng : -111.773849}
 
 // var x = distance(40.79162, -111.765609, 40.803544, -111.773849)
 // var k = distance(p, m)

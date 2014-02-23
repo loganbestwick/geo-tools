@@ -13,9 +13,9 @@ describe('GeoTools', function(){
 	})
 
 	describe('reverse geocode', function(){
-		it('should reverse geocode a given set of lat & lng', function(done){
-			var lat = 51.515400;
-			var lng = 7.455185;
+		it('should reverse geocode a given set of lat & lng', function(){
+			var lat = 52.518611;
+			var lng = 13.408056;
 			reverseGeocode(lat, lng, function(address){
 				address.should.have.property('full_address').and.be.type('string');
 			})

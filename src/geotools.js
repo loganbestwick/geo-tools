@@ -1,4 +1,4 @@
-var http = require('http');
+var https = require('https');
 var url = require('url');
 
 (function() {
@@ -11,6 +11,7 @@ var url = require('url');
 			lng1 = lat1.lng
 			lat1 = lat1.lat
 		}
+		distanceParamCheck(lat1, lng1, lat2, lng2);
 		var R = 6371; // km
 		var dLat = toRad(lat2-lat1);
 		var dLng = toRad(lng2-lng1);
@@ -23,29 +24,51 @@ var url = require('url');
 		var d = R * c; // Distance in k
 		return d;
 	}
-	
+
+	//Confirms the parameters are the proper type for distance()
+	distanceParamCheck = function(lat1, lng1, lat2, lng2) {
+		for (var i = 0; i < arguments.length; i++){
+			if (typeof arguments[i] != 'number' || parseFloat(arguments[i]) == NaN){
+				console.log('Invalid Parameter(s)')
+			}
+		}
+	}
+
 	// Converts numeric degrees to radians. Used in distance()
 	toRad = function(deg) {
 	    return deg * Math.PI / 180;
 	}
 
 	//Converts a physical address to a set of coordinates
-	geocode = function(address, callback) {
+	geocode = function(address, api, callback) {
 		//Prepares the inputted address into the search query
-		var query = address.split(" ").join("+") + '&sensor=false'
+		var apiQuery = '&key='
+		if (callback != undefined) {
+			apiQuery += api
+		} else {
+			callback = api
+		}
+		var query = address.split(" ").join("+") + '&sensor=false' + apiQuery
 		var options = {
 			host : 'maps.googleapis.com',
 			path: '/maps/api/geocode/json?address=' + query
 			}
 			
-		var req = http.get(options, function(res){
+		var req = https.get(options, function(res){
 			console.log("Response: " + res.statusCode);
 			var results = '';
+			res.on('error', function(e){
+				console.log("Got error: " + e.message);
+			})
 			res.on('data', function(data){
 				results += data;
 			})
 			res.on('end', function() {
 				var body = JSON.parse(results)
+				if (body.error_message) {
+					console.log(body.error_message)
+					return;
+				}
 				var lat = (body.results[0].geometry.location.lat);
 				var lng = (body.results[0].geometry.location.lng);
 				var coordinates = {'lat' : lat, 'lng' : lng}
@@ -71,14 +94,21 @@ var url = require('url');
 			host : 'maps.googleapis.com',
 			path: '/maps/api/geocode/json?latlng=' + query
 			}
-		var req = http.get(options, function(res){
+		var req = https.get(options, function(res){
 			console.log("Response: " + res.statusCode);
 			var results = '';
+			res.on('error', function(e){
+				console.log("Got error: " + e.message);
+			})
 			res.on('data', function(data){
 				results += data;
 			})
 			res.on('end', function() {
 				var body = JSON.parse(results)
+				if (body.error_message) {
+					console.log(body.error_message)
+					return;
+				}
 				var address = gMapsFormData(body)
 				if (callback) {
 					callback(address)

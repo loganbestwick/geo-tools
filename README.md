@@ -9,6 +9,7 @@ This is my first open-source contirubtion. Any and all feedback/suggestions is a
 <h2>To-Do:</h2>
 <ul>
 	<li>Use AirBnB's JS Styling Guide</li>
-	<li>Allow for API key to be used</li>
-	<li>Throw errors</li>
+	<li>Throw errors for invalid parameters</li>
+	<li>Allow API key for rGeocode</li>
+	<li>Refactor</li>
 </ul>
