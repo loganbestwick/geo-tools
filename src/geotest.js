@@ -1,6 +1,6 @@
 var geoTools = require('./geotools.js');
 
-distance(40.79162, -111.765609, 40.803544, -111.773849)
+// distance(40.79162, -111.765609, 40.803544, -111.773849)
 
 
 // console.log(x);
