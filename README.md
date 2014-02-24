@@ -84,37 +84,13 @@ toMiles(length) //Returns
 
 Converts Km into meters. The argument passed must be in Km which is the default unit used in geo-tools.
 
-<pre>
-var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
-
-toMeters(length) //Returns
-
-2229.9158844532244
-</pre>
-
 <h3>toYards(distance)</h3>
 
 Converts Km into yards. The argument passed must be in Km which is the default unit used in geo-tools.
 
-<pre>
-var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
-
-toYards(length) //Returns
-
-2438.6583103968906
-</pre>
-
 <h3>toFeet(distance)</h3>
 
 Converts Km into feet. The argument passed must be in Km which is the default unit used in geo-tools.
-
-<pre>
-var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
-
-toFeet(length) //Returns
-
-7315.997230349518
-</pre>
 
 <h2>Notes</h2>
 <ul>
