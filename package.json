@@ -25,7 +25,7 @@
 		"coordinates"
 	],
 	"version" : "0.1.1",
-	"main" : "./geo-tools",
+	"main" : "./src/geo-tools",
 	"engines": {
     "node": "*"
   }
