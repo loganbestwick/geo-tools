@@ -8,9 +8,13 @@
 	"bin" : {
 		"geotools" : "./geo-tools.js"
 	},
+	"main": "src/geocoderfactory.js",
+  "scripts": {
+    "test": "mocha"
+  },
 	"repository" : {
 		"type" : "git",
-	"url" : ""
+	"url" : "https://github.com/loganbestwick/geo-tools"
 	},
 	"files" : [
 		"geo-tools.js"
