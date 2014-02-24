@@ -95,6 +95,7 @@ Converts Km into feet. The argument passed must be in Km which is the default un
 <h2>Notes</h2>
 <ul>
 	<li>Sexagesimal format is not supported</li>
+	<li>Google Maps API will allow for up to 2500 API calls in 24 hours. For additional calls, a business API key is required.</li>
 </ul>
 
 <h2>To-Do:</h2>
@@ -104,7 +105,8 @@ Converts Km into feet. The argument passed must be in Km which is the default un
 
 <h2>Sources</h2>
 <ul>
-	<li>HAVERSINE SOURCE</li>
+	<li>To calculate distance, the Haversine formula is used. The formula comes from the following source:</li>
+	<li><a href="http://www.movable-type.co.uk/scripts/latlong.html">http://www.movable-type.co.uk/scripts/latlong.html</a></li>
 </ul>
 
 Any and all feedback/suggestions is appreciated and should be sent to: [loganbestwick@gmail.com](mailto:loganbestwick@gmail.com)
