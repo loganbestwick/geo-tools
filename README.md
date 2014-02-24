@@ -22,7 +22,7 @@ geocode('717 California Street, San Francisco, CA', function(coordinates){
 
 <h3>reverseGeocode(object[lat], [lng], callback)</h3>
 
-Takes 2 or 3 arguments. It can accept either an object with the lat/lng (ex. reverseGeocode({lat: 51.515400, lng: 7.455185}, callback)) or two numbers and the callback (ex. reverseGeocode(51.515400, 7.455185, callback)). If you use the latter format, order matters. Latitude must go first and longitude second.
+Takes 2 or 3 arguments. It can accept either an object with the lat/lng (ex. reverseGeocode({lat: 51.515400, lng: 7.455185}, callback)) or two numbers and the callback (ex. reverseGeocode(51.515400, 7.455185, callback)). If you use the latter format, order matters. Latitude must go first and longitude second (ex. reverseGeocode(51.515400, 7.455185, callback)).
 
 <pre>
 reverseGeocode({lat: 37.79221, lng: -122.406141}, function(address){
@@ -44,7 +44,7 @@ reverseGeocode({lat: 37.79221, lng: -122.406141}, function(address){
 
 <h3>distance(object1, object2[lat1], [lng1], [lat2], [lng2])</h3>
 
-Calculates the distance between two sets of coordinates. Returns the distance in KM. Accepts either 2 object arguments (ex. distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})), or 4 numbers arguments (ex. distance(37.79221, -122.406141, 37.774514, -122.418079)). If you choose the latter method, order methods and should be as follows: distance(lat1, lng1, lat2, lng2). Passing in objects is reccomended. 
+Calculates the distance between two sets of coordinates. Returns the distance in Km. Accepts either 2 object arguments (ex. distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})), or 4 number arguments (ex. distance(37.79221, -122.406141, 37.774514, -122.418079)). If you choose the latter method, order matters and should be as follows: distance(lat1, lng1, lat2, lng2). Passing in objects is reccomended. 
 
 <pre>
 distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})
@@ -56,13 +56,7 @@ distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})
 
 <h3>toMiles(distance)</h3>
 
-Converts Km into miles. The argument passed in must be in Km which is the default units used in Geo-Tools. Additional conversion methods are:
-
-<ul>
-<li>toMeters(distance)</li>
-<li>toYards(distance)</li>
-<li>toFeet(distance)</li>
-</ul>
+Converts Km into miles. The argument passed must be in Km which is the default unit used in geo-tools.
 
 <pre>
 var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
@@ -70,6 +64,42 @@ var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -
 toMiles(length) //Returns
 
 1.3856050630385846
+</pre>
+
+<h3>toMeters(distance)</h3>
+
+Converts Km into meters. The argument passed must be in Km which is the default unit used in geo-tools.
+
+<pre>
+var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
+
+toMeters(length) //Returns
+
+2229.9158844532244
+</pre>
+
+<h3>toYards(distance)</h3>
+
+Converts Km into yards. The argument passed must be in Km which is the default unit used in geo-tools.
+
+<pre>
+var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
+
+toYards(length) //Returns
+
+2438.6583103968906
+</pre>
+
+<h3>toFeet(distance)</h3>
+
+Converts Km into feet. The argument passed must be in Km which is the default unit used in geo-tools.
+
+<pre>
+var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
+
+toFeet(length) //Returns
+
+7315.997230349518
 </pre>
 
 <h2>Notes</h2>
