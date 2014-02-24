@@ -92,6 +92,14 @@ Converts Km into yards. The argument passed must be in Km which is the default u
 
 Converts Km into feet. The argument passed must be in Km which is the default unit used in geo-tools.
 
+<h2>Tests</h2>
+
+To run tests, type mocha into your terminal
+
+<pre>
+mocha
+</pre>
+
 <h2>Notes</h2>
 <ul>
 	<li>Sexagesimal format is not supported</li>
