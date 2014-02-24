@@ -1,4 +1,4 @@
-#Geo-tools
+#geo-tools
 
 A simple library used to geocode an address, reverse geocode coordinates, and calculate the distance between two locations. The default distance used is KM. Unit conversion methods are provided and can be seen below. The Google Maps API service is used for geocoding and reverse geocoding. 
 
@@ -20,7 +20,7 @@ geocode('717 California Street, San Francisco, CA', function(coordinates){
 { lat: 37.79221, lng: -122.406141 }
 </pre>
 
-<h3>reverseGeocode(object || [lat], [lng], callback)</h3>
+<h3>reverseGeocode(object[lat], [lng], callback)</h3>
 
 Takes 2 or 3 arguments. It can accept either an object with the lat/lng (ex. reverseGeocode({lat: 51.515400, lng: 7.455185}, callback)) or two numbers and the callback (ex. reverseGeocode(51.515400, 7.455185, callback)). If you use the latter format, order matters. Latitude must go first and longitude second.
 
@@ -42,7 +42,7 @@ reverseGeocode({lat: 37.79221, lng: -122.406141}, function(address){
   postal_code: '94108' }
 </pre>
 
-<h3>distance(object1, object2 || [lat1], [lng1], [lat2], [lng2])</h3>
+<h3>distance(object1, object2[lat1], [lng1], [lat2], [lng2])</h3>
 
 Calculates the distance between two sets of coordinates. Returns the distance in KM. Accepts either 2 object arguments (ex. distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})), or 4 numbers arguments (ex. distance(37.79221, -122.406141, 37.774514, -122.418079)). If you choose the latter method, order methods and should be as follows: distance(lat1, lng1, lat2, lng2). Passing in objects is reccomended. 
 
@@ -54,7 +54,23 @@ distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079})
 2.2299158844532245
 </pre>
 
+<h3>toMiles(distance)</h3>
 
+Converts Km into miles. The argument passed in must be in Km which is the default units used in Geo-Tools. Additional conversion methods are:
+
+<ul>
+<li>toMeters(distance)</li>
+<li>toYards(distance)</li>
+<li>toFeet(distance)</li>
+</ul>
+
+<pre>
+var length = distance({lat: 37.79221, lng: -122.406141}, {lat: 37.774514, lng: -122.418079});
+
+toMiles(length) //Returns
+
+1.3856050630385846
+</pre>
 
 <h2>Notes</h2>
 <ul>
