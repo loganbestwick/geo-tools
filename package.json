@@ -1,36 +1,32 @@
 {
 	"name" : "geo-tools",
-	"homepage" : "",
+	"homepage" : "http://github.com/loganbestwick/geo-tools",
 	"author" : {
 		"name" : "Logan Bestwick",
-		"url" : "https://github.com/loganbestwick"
+		"url" : "http://github.com/loganbestwick"
 	},
-	"bin" : {
-		"geotools" : "./geo-tools.js"
-	},
-	"main": "src/geocoderfactory.js",
-  "scripts": {
-    "test": "mocha"
-  },
+	"main": "./src/geo-tools.js",
 	"repository" : {
 		"type" : "git",
-	"url" : "https://github.com/loganbestwick/geo-tools"
+		"url" : "https://github.com/loganbestwick/geo-tools"
 	},
-	"files" : [
-		"geo-tools.js"
-	],
 	"description" : "Tools to help geocode, reverse geocode, and calculate location distances",
 	"devDependencies" : {
 		"should" : "3.1.2",
 		"mocha" : "1.17.1"
 		},
+	"main" : "./src/geo-tools.js",
 	"keywords" : [
 		"geocode",
 		"geodistance",
 		"geo",
-		"geo-tools"
+		"geo-tools",
 		"distance",
 		"coordinates"
 	],
-	"main" : "./geo-tools"
+	"version" : "0.1.1",
+	"main" : "./geo-tools",
+	"engines": {
+    "node": "*"
+  }
 }
