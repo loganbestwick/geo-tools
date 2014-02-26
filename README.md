@@ -36,7 +36,7 @@ geocode('717 California Street, San Francisco, CA', function(coordinates){
 
 <h3>reverseGeocode(object[lat], [lng], callback)</h3>
 
-Takes 2 or 3 arguments. It can accept either an object with the lat/lng (ex. reverseGeocode({lat: 51.515400, lng: 7.455185}, callback)) or two numbers and the callback (ex. reverseGeocode(51.515400, 7.455185, callback)). If you use the latter format, order matters. Latitude must go first and longitude second (ex. reverseGeocode(51.515400, 7.455185, callback)).
+Takes 2 or 3 arguments. It can accept either an object with the lat/lng (ex. reverseGeocode({lat: 51.515400, lng: 7.455185}, callback)) or two numbers and the callback (ex. reverseGeocode(51.515400, 7.455185, callback)). If you use the latter format, order matters. Latitude must go first and longitude second.
 
 <pre>
 reverseGeocode({lat: 37.79221, lng: -122.406141}, function(address){
