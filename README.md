@@ -2,7 +2,7 @@
 
 A simple library used to geocode an address, reverse geocode coordinates, and calculate the distance between two locations. The default distance used is KM. Unit conversion methods are provided and can be seen below. The Google Maps API service is used for geocoding and reverse geocoding. 
 
-<h2>Installaion</h2>
+<h2>Installation</h2>
 
 <pre>
 npm install geo-tools
