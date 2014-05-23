@@ -42,14 +42,23 @@ var url = require('url');
 	}
 
 	//Converts a physical address to a set of coordinates
-	geocode = function(address, callback) {
+	geocode = function(address, callback, options) {
 
 		//Prepares the inputted address into the search query
-		var query = address.split(' ').join('+') + '&sensor=false',
-				options = {
-			host : 'maps.googleapis.com',
-			path: '/maps/api/geocode/json?address=' + query
-			};
+		var query = address.split(' ').join('+') + '&sensor=false'
+		var host = 'maps.googleapis.com';
+		//check for API key
+		if (options) {
+			var key = '&key=' + options.key;
+			var path = '/maps/api/geocode/json?address=' + query + key
+		} else {
+			var path = '/maps/api/geocode/json?address=' + query
+		}
+		
+		var	options = {
+			host : host,
+			path: path
+		};
 			
 		var req = https.get(options, function(res) {
 			console.log('Response: ' + res.statusCode);

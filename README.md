@@ -20,18 +20,24 @@ var geoTools = require('geo-tools');
 
 Latitude and longitude shoud be inputted as lat/lng and will be returned as lat/lng.
 
-<h3>geocode(address, callback)</h3>
+<h3>geocode(address, callback, options)</h3>
 
 Returns the latitude and longitude of a given address. 
 
 <pre>
 geocode('717 California Street, San Francisco, CA', function(coordinates){
-	console.log(coordinates)
-})
+  console.log(coordinates)
+}, {key: 'YOUR_GOOGLE_API_KEY'})
 
 //Displays to the console:
 
 { lat: 37.79221, lng: -122.406141 }
+</pre>
+
+Options(not required):
+
+<pre>
+{ key: 'YOUR_GOOGLE_API_KEY'}
 </pre>
 
 <h3>reverseGeocode(object[lat], [lng], callback)</h3>
