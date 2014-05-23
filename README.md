@@ -27,7 +27,7 @@ Returns the latitude and longitude of a given address.
 <pre>
 geocode('717 California Street, San Francisco, CA', function(coordinates){
   console.log(coordinates)
-}, {key: 'YOUR_GOOGLE_API_KEY'})
+})
 
 //Displays to the console:
 
@@ -37,7 +37,7 @@ geocode('717 California Street, San Francisco, CA', function(coordinates){
 Options(not required):
 
 <pre>
-{ key: 'YOUR_GOOGLE_API_KEY'}
+{key: 'YOUR_GOOGLE_API_KEY'}
 </pre>
 
 <h3>reverseGeocode(object[lat], [lng], callback)</h3>
