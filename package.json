@@ -28,5 +28,8 @@
 	"main" : "./src/geo-tools",
 	"engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "mocha ./test/geotests.js"
   }
 }

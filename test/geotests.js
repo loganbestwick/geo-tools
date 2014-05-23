@@ -10,6 +10,13 @@ describe('GeoTools', function(){
 				done();
 			})
 		})
+		it('should geocode a given address using a given API key', function(done){
+			var address = '1600 Amphitheatre Pkwy, Mountain View, CA'
+			geocode(address, function(coordinates){
+				coordinates.should.have.property('lng').and.be.type('number');
+				done();
+			}, {key: 'YOUR_GOOGLE_API_KEY'})
+		})
 	})
 
 	describe('reverse geocode', function(){
