@@ -112,11 +112,6 @@ mocha
 	<li>Google Maps API will allow for up to 2500 API calls in 24 hours. For additional calls, a business API key is required.</li>
 </ul>
 
-<h2>To-Do:</h2>
-<ul>
-	<li>Allow use of API key</li>
-</ul>
-
 <h2>Sources</h2>
 <ul>
 	<li>To calculate distance, the Haversine formula is used. The formula comes from the following source:</li>
