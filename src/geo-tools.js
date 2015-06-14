@@ -1,10 +1,10 @@
 var https = require('https');
 var url = require('url');
 
-(function() {
+var GeoTools = {
 
 	//Calculates the distance between to sets of coordinates
-	distance = function (lat1, lng1, lat2, lng2) {
+	distance: function (lat1, lng1, lat2, lng2) {
 		if (lat1.lat && lng1.lat) {
 			lat2 = lng1.lat
 			lng2 = lng1.lng
@@ -13,7 +13,7 @@ var url = require('url');
 		}
 
 		//Confirms the user inputted arguments are in the correct format
-		distanceArgumentCheck(lat1, lng1, lat2, lng2);
+		GeoTools.distanceArgumentCheck(lat1, lng1, lat2, lng2);
 		var R = 6371, // km
 				dLat = toRad(lat2-lat1),
 				dLng = toRad(lng2-lng1),
@@ -21,28 +21,28 @@ var url = require('url');
 				lat2 = toRad(lat2);
 
 		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-		        Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2), 
+		        Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2),
 				c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)),
 				d = R * c; // Distance in k
 		return d;
-	};
+	},
 
 	//Confirms the parameters are the proper type for distance()
-	distanceArgumentCheck = function(lat1, lng1, lat2, lng2) {
+	distanceArgumentCheck: function(lat1, lng1, lat2, lng2) {
 		for (var i = 0; i < arguments.length; i++){
 			if (typeof arguments[i] !== 'number' || parseFloat(arguments[i]) === NaN) {
 				console.log('Invalid Parameter(s)');
 			};
 		};
-	};
+	},
 
 	// Converts numeric degrees to radians. Used in distance()
-	toRad = function(deg) {
+	toRad: function(deg) {
 	    return deg * Math.PI / 180;
-	}
+	},
 
 	//Converts a physical address to a set of coordinates
-	geocode = function(address, callback, options) {
+	geocode: function(address, callback, options) {
 
 		//Prepares the inputted address into the search query
 		var query = address.split(' ').join('+') + '&sensor=false'
@@ -54,12 +54,12 @@ var url = require('url');
 		} else {
 			var path = '/maps/api/geocode/json?address=' + query
 		}
-		
+
 		var	options = {
 			host : host,
 			path: path
 		};
-			
+
 		var req = https.get(options, function(res) {
 			console.log('Response: ' + res.statusCode);
 			var results = '';
@@ -85,10 +85,10 @@ var url = require('url');
 				};
 			});
 		});
-	};
+	},
 
 	//Converts a set of coordinates to a physical address
-	reverseGeocode = function(lat, lng, callback) {
+	reverseGeocode: function(lat, lng, callback) {
 		if (lat.lat && lat.lng) {
 			callback = lng
 			lng = lat.lng
@@ -98,9 +98,9 @@ var url = require('url');
 		//Prepares the inputted lat/lng into the search query
 		var query = lat.toString() + ',' + lng.toString() + '&sensor=false',
 				options = {
-			host : 'maps.googleapis.com',
-			path: '/maps/api/geocode/json?latlng=' + query
-			};
+					host : 'maps.googleapis.com',
+					path: '/maps/api/geocode/json?latlng=' + query
+				};
 		var req = https.get(options, function(res) {
 			console.log('Response: ' + res.statusCode);
 			var results = '';
@@ -116,7 +116,7 @@ var url = require('url');
 					console.log(body.error_message);
 					return;
 				}
-				var address = gMapsFormResponseData(body)
+				var address = GeoTools.gMapsFormResponseData(body)
 				if (callback) {
 					callback(address);
 				} else {
@@ -124,10 +124,10 @@ var url = require('url');
 				};
 			});
 		});
-	};
+	},
 
 	//Maps the returned JSON from Google APIs for the reverseGeocode function
-	gMapsFormResponseData = function(json) {
+	gMapsFormResponseData: function(json) {
 		var address = {
 					full_address : json.results[0].formatted_address
 				},
@@ -161,26 +161,27 @@ var url = require('url');
 			};
 		};
 		return address;
-	};
+	},
 
 	//Converts KM into miles
-	toMiles = function(distance) {
+	toMiles: function(distance) {
 		return distance * 0.621371;
-	};
+	},
 
 	//Converts KM into meters
-	toMeters = function(distance) {
+	toMeters: function(distance) {
 		return distance * 1000;
-	};
+	},
 
 	//Converts KM into yards
-	toYards = function(distance) {
+	toYards: function(distance) {
 		return distance * 1093.61;
-	};
+	},
 
 	//Converts KM into feet
-	toFeet = function(distance) {
+	toFeet: function(distance) {
 		return distance * 3280.84;
-	};
+	}
+};
 
-}).call(this);
+module.exports = GeoTools;
