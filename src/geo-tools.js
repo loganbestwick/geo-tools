@@ -15,10 +15,10 @@ var GeoTools = {
 		//Confirms the user inputted arguments are in the correct format
 		GeoTools.distanceArgumentCheck(lat1, lng1, lat2, lng2);
 		var R = 6371, // km
-				dLat = toRad(lat2-lat1),
-				dLng = toRad(lng2-lng1),
-				lat1 = toRad(lat1),
-				lat2 = toRad(lat2);
+				dLat = GeoTools.toRad(lat2-lat1),
+				dLng = GeoTools.toRad(lng2-lng1),
+				lat1 = GeoTools.toRad(lat1),
+				lat2 = GeoTools.toRad(lat2);
 
 		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
 		        Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2),
